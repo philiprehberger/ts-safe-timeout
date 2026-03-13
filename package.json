@@ -1,5 +1,5 @@
 {
-  "name": "@philiprehberger/safe-timeout",
+  "name": "@philiprehberger/ts-safe-timeout",
   "version": "0.1.0",
   "description": "Reliable timeout wrapper for async operations with AbortController support",
   "type": "module",
@@ -41,11 +41,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/philiprehberger/safe-timeout.git"
+    "url": "git+https://github.com/philiprehberger/ts-safe-timeout.git"
   },
-  "homepage": "https://github.com/philiprehberger/safe-timeout#readme",
+  "homepage": "https://github.com/philiprehberger/ts-safe-timeout#readme",
   "bugs": {
-    "url": "https://github.com/philiprehberger/safe-timeout/issues"
+    "url": "https://github.com/philiprehberger/ts-safe-timeout/issues"
   },
   "author": "Philip Rehberger",
   "engines": {
