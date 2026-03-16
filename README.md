@@ -1,5 +1,9 @@
 # @philiprehberger/safe-timeout
 
+[![CI](https://github.com/philiprehberger/safe-timeout/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/safe-timeout/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-timeout.svg)](https://www.npmjs.com/package/@philiprehberger/safe-timeout)
+[![License](https://img.shields.io/github/license/philiprehberger/safe-timeout)](LICENSE)
+
 Reliable timeout wrapper for async operations with AbortController support.
 
 ## Installation
