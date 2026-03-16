@@ -1,15 +1,15 @@
-# @philiprehberger/safe-timeout
+# @philiprehberger/ts-safe-timeout
 
-[![CI](https://github.com/philiprehberger/safe-timeout/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/safe-timeout/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-timeout.svg)](https://www.npmjs.com/package/@philiprehberger/safe-timeout)
-[![License](https://img.shields.io/github/license/philiprehberger/safe-timeout)](LICENSE)
+[![CI](https://github.com/philiprehberger/ts-safe-timeout/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-timeout/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@philiprehberger/ts-safe-timeout.svg)](https://www.npmjs.com/package/@philiprehberger/ts-safe-timeout)
+[![License](https://img.shields.io/github/license/philiprehberger/ts-safe-timeout)](LICENSE)
 
 Reliable timeout wrapper for async operations with AbortController support.
 
 ## Installation
 
 ```bash
-npm install @philiprehberger/safe-timeout
+npm install @philiprehberger/ts-safe-timeout
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @philiprehberger/safe-timeout
 ### Timeout with Error
 
 ```ts
-import { withTimeout, TimeoutError } from '@philiprehberger/safe-timeout';
+import { withTimeout, TimeoutError } from '@philiprehberger/ts-safe-timeout';
 
 try {
   const data = await withTimeout(fetch('/api/data'), 5000);
@@ -31,7 +31,7 @@ try {
 ### Timeout with Fallback
 
 ```ts
-import { withTimeoutFallback } from '@philiprehberger/safe-timeout';
+import { withTimeoutFallback } from '@philiprehberger/ts-safe-timeout';
 
 const data = await withTimeoutFallback(fetch('/api/data'), 5000, cachedData);
 // Returns cachedData if the fetch takes longer than 5 seconds
@@ -40,7 +40,7 @@ const data = await withTimeoutFallback(fetch('/api/data'), 5000, cachedData);
 ### Timeout Signal
 
 ```ts
-import { createTimeoutSignal } from '@philiprehberger/safe-timeout';
+import { createTimeoutSignal } from '@philiprehberger/ts-safe-timeout';
 
 const signal = createTimeoutSignal(5000);
 const response = await fetch('/api/data', { signal });
