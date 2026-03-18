@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/ts-safe-timeout.svg)](https://www.npmjs.com/package/@philiprehberger/ts-safe-timeout)
 [![License](https://img.shields.io/github/license/philiprehberger/ts-safe-timeout)](LICENSE)
 
-Reliable timeout wrapper for async operations with AbortController support.
+Reliable timeout wrapper for async operations with AbortController support
 
 ## Installation
 
