@@ -1,6 +1,6 @@
 # @philiprehberger/ts-safe-timeout
 
-[![CI](https://github.com/philiprehberger/ts-safe-timeout/actions/workflows/publish.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-timeout/actions/workflows/publish.yml)
+[![CI](https://github.com/philiprehberger/ts-safe-timeout/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-timeout/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/ts-safe-timeout.svg)](https://www.npmjs.com/package/@philiprehberger/ts-safe-timeout)
 [![License](https://img.shields.io/github/license/philiprehberger/ts-safe-timeout)](LICENSE)
 
