@@ -1,5 +1,5 @@
 {
-  "name": "@philiprehberger/ts-safe-timeout",
+  "name": "@philiprehberger/safe-timeout",
   "version": "0.1.4",
   "description": "Reliable timeout wrapper for async operations with AbortController support",
   "type": "module",
