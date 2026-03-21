@@ -1,6 +1,6 @@
 {
   "name": "@philiprehberger/safe-timeout",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Reliable timeout wrapper for async operations with AbortController support",
   "type": "module",
   "main": "./dist/index.cjs",
