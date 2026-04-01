@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Add timeout retry wrapper with configurable backoff
+- Add onTimeout callback for custom timeout handling
+- Add deadline mode with absolute timestamp support
+- Add TimeoutTracker for timeout statistics and monitoring
+
 ## 0.1.6
 
 - Standardize README to 3-badge format with emoji Support section
