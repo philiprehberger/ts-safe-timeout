@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Fix README GitHub URLs to use correct repo name (ts-safe-timeout)
+
 ## 0.2.0
 
 - Add timeout retry wrapper with configurable backoff
