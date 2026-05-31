@@ -4,6 +4,8 @@
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-timeout.svg)](https://www.npmjs.com/package/@philiprehberger/safe-timeout)
 [![Last updated](https://img.shields.io/github/last-commit/philiprehberger/ts-safe-timeout)](https://github.com/philiprehberger/ts-safe-timeout/commits/main)
 
+![@philiprehberger/safe-timeout](https://raw.githubusercontent.com/philiprehberger/ts-safe-timeout/main/package-card.webp)
+
 Reliable timeout wrapper for async operations with AbortController support
 
 ## Installation
@@ -53,6 +55,26 @@ const data = await withTimeout(fetch('/api'), 5000, {
   signal: existingAbortSignal,  // Also abort on external signal
   onTimeout: () => console.warn('Operation timed out'),
 });
+```
+
+### Abortable Timeout
+
+```ts
+import { withTimeoutAbort, TimeoutError } from '@philiprehberger/safe-timeout';
+
+try {
+  const { result, controller } = await withTimeoutAbort(
+    (signal) => fetch('/api/data', { signal }),
+    5000,
+  );
+  // controller.signal can be passed to follow-up work that should
+  // be cancelled if the caller decides to bail out later.
+} catch (error) {
+  if (error instanceof TimeoutError) {
+    // The inner fetch was aborted automatically — no cleanup needed.
+    console.warn('Request timed out and was aborted');
+  }
+}
 ```
 
 ### Timeout Retry
@@ -107,6 +129,7 @@ tracker.reset();
 | Export | Description |
 |--------|-------------|
 | `withTimeout(promise, ms, options?)` | Race promise against timeout, throws `TimeoutError` on timeout |
+| `withTimeoutAbort(fn, ms, options?)` | Like `withTimeout` but passes an `AbortSignal` to `fn` and aborts it on timeout; resolves with `{ result, controller }` |
 | `withTimeoutFallback(promise, ms, fallback)` | Returns fallback value on timeout instead of throwing |
 | `withTimeoutRetry(fn, options)` | Retry an async function with increasing timeout on each attempt |
 | `withDeadline(promise, deadline, options?)` | Race promise against an absolute `Date` deadline |

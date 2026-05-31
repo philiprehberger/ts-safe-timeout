@@ -73,3 +73,48 @@ export function createTimeoutSignal(ms: number): AbortSignal {
   setTimeout(() => controller.abort(new TimeoutError(ms)), ms);
   return controller.signal;
 }
+
+/**
+ * Runs an async operation with a timeout, providing it an `AbortSignal`
+ * that is aborted when the timeout fires. This lets callers cancel upstream
+ * work without manually wiring an `AbortController`.
+ *
+ * The returned `AbortController` is also exposed so callers can perform
+ * cleanup that depends on its state (e.g. checking `controller.signal.aborted`)
+ * or share the signal with sibling operations.
+ *
+ * On timeout, the controller is aborted with a `TimeoutError` and the
+ * returned promise rejects with that same `TimeoutError`.
+ */
+export async function withTimeoutAbort<T>(
+  fn: (signal: AbortSignal) => Promise<T>,
+  ms: number,
+  options?: TimeoutOptions,
+): Promise<{ result: T; controller: AbortController }> {
+  const controller = new AbortController();
+
+  const onExternalAbort = (): void => {
+    controller.abort(options?.signal?.reason);
+  };
+
+  if (options?.signal) {
+    if (options.signal.aborted) {
+      controller.abort(options.signal.reason);
+    } else {
+      options.signal.addEventListener('abort', onExternalAbort, { once: true });
+    }
+  }
+
+  try {
+    const result = await withTimeout(fn(controller.signal), ms, {
+      signal: options?.signal,
+      onTimeout: () => {
+        controller.abort(new TimeoutError(ms));
+        options?.onTimeout?.();
+      },
+    });
+    return { result, controller };
+  } finally {
+    options?.signal?.removeEventListener('abort', onExternalAbort);
+  }
+}

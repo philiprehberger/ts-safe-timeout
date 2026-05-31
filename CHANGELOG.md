@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- Add `withTimeoutAbort()` that aborts the operation's AbortSignal when the timeout fires, so callers can cancel upstream work without managing an AbortController manually
+
 ## 0.2.1
 
 - Fix README GitHub URLs to use correct repo name (ts-safe-timeout)

@@ -1,4 +1,4 @@
-export { withTimeout, withTimeoutFallback, createTimeoutSignal } from './timeout.js';
+export { withTimeout, withTimeoutFallback, createTimeoutSignal, withTimeoutAbort } from './timeout.js';
 export { withTimeoutRetry } from './retry.js';
 export { withDeadline } from './deadline.js';
 export { TimeoutTracker } from './tracker.js';
